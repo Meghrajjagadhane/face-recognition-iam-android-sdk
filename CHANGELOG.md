@@ -23,3 +23,7 @@
 ##### - Bug Fixes:
 - Progress Dialog not getting disabled when no internet is present for HVFrCamera operations
 - onFaceProcessingEnd getting called before onFaceProcessingStart in case of no internet
+
+#### Version 1.2.7
+##### - Bug Fixes:
+- Network timeout added for all the Multipart API calls

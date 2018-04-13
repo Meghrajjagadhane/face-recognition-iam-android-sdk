@@ -22,7 +22,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "co.hypersecure"
@@ -50,7 +50,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile('co.hyperverge:hypersecuresdk:1.1.5@aar', {
+    compile('co.hyperverge:hypersecuresdk:1.2.7@aar', {
         transitive=true
     })
     compile 'com.googlecode.libphonenumber:libphonenumber:7.2.1'
