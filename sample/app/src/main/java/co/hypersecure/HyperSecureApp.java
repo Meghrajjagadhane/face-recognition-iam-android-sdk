@@ -10,6 +10,7 @@ import co.hypersecure.Utilities.Constants;
 import co.hyperverge.hypersecuresdk.HyperSecureSDK;
 import io.fabric.sdk.android.Fabric;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+//import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class HyperSecureApp extends Application {
 
@@ -30,7 +31,7 @@ public class HyperSecureApp extends Application {
             Log.e("HyperSecureApp", "This sample code needs tenantId, tenantKey, adminToken and groupId to work. Contact HyperVerge at contact@hyperverge.co for getting these credentials");
         }
         HyperSecureSDK.init(this.getApplicationContext(), Constants.tenantId, Constants.tenantKey, Constants.adminToken);
-            CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                     .setDefaultFontPath("Roboto_regular.ttf")
                     .setFontAttrId(R.attr.fontPath)
                     .build()

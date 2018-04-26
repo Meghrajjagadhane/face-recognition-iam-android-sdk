@@ -27,3 +27,13 @@
 #### Version 1.2.7
 ##### - Bug Fixes:
 - Network timeout added for all the Multipart API calls
+
+### Version 1.2.9
+#### - Bug Fixes
+- Minor bug fixes
+#### - Other Changes
+- Added RenderScript to the project
+
+### Version 1.2.10
+##### - Bug Fixes:
+- Nexus 6P Face detection issue fixed

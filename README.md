@@ -41,8 +41,14 @@ A high-level overview of the Face Recognition workflow is as follows:
     - Add the following set of lines to your `app/build.gradle`
 
         ```
+		android {
+            defaultConfig {
+				renderscriptTargetApi 19
+                renderscriptSupportModeEnabled true
+            }
+		}
         dependencies {
-            compile('co.hyperverge:hypersecuresdk:1.2.7@aar', {
+            compile('co.hyperverge:hypersecuresdk:1.2.10@aar', {
                 transitive=true
             })
         }
