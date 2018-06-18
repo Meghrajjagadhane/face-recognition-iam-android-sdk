@@ -48,7 +48,7 @@ A high-level overview of the Face Recognition workflow is as follows:
             }
 		}
         dependencies {
-            compile('co.hyperverge:hypersecuresdk:1.2.10@aar', {
+            compile('co.hyperverge:hypersecuresdk:1.2.11@aar', {
                 transitive=true
             })
         }

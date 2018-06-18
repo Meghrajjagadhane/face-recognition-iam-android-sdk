@@ -52,7 +52,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile('co.hyperverge:hypersecuresdk:1.2.10@aar', {
+    compile('co.hyperverge:hypersecuresdk:1.2.11@aar', {
         transitive=true
         exclude group: "com.android.support"
     })

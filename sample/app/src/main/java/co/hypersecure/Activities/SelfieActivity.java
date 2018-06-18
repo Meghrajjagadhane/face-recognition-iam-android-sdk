@@ -57,6 +57,7 @@ public class SelfieActivity extends FDActivity {
         btCapture = (ImageView) findViewById(R.id.btCapture);
 
         hvFrCamera = (HVFrCamera) findViewById(R.id.cameraFL);
+        hvFrCamera.shouldUploadFullImageToServer(true);
         hvFrCamera.startCamera(getUserData(), FRMode.REGISTER, 0, false, true, new HVFrCamera.HVFrCameraListener() {
             @Override
             public void onFaceRecognitionResult(FRMode frMode, JSONObject result) {
