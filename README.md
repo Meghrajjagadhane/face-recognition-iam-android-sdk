@@ -242,7 +242,7 @@ hvfrcamera.setAutoCaptureEnabled(isAutoCaptureEnabled);
 hvfrcamera.setFRCameraListener(myFrCamListener);
 hvfrcamera.shouldUseFrontCam(useFrontCam);
 hvfrcamera.resumeFR();
-hvfrcamera.setShouldEnableLiveness(shouldDoLiveness)
+hvfrcamera.setShouldEnableLiveness(shouldDoLiveness);
 ```
 
 ##### Capturing Face Image Manually        
