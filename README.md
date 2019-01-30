@@ -48,7 +48,7 @@ A high-level overview of the Face Recognition workflow is as follows:
             }
 		}
         dependencies {
-            compile('co.hyperverge:hypersecuresdk:1.3.5@aar', {
+            compile('co.hyperverge:hypersecuresdk:2.0.0@aar', {
                 transitive=true
             })
         }
@@ -190,7 +190,7 @@ HVFrCamera View is a sub-class of FrameLayout. This is a view with a fixed aspec
 - Add the following to the `onCreate()` method of your Activity or Fragment to which HVFrCamera has been added:
 
 	```
-	hvfrcamera.startCamera(userData, mode, timeout, isAutoCaptureEnabled, useFrontCam, shouldDoLiveness, myFrCamListener);
+	hvfrcamera.startCamera(userData, mode, timeout, isAutoCaptureEnabled, useFrontCam, shouldEnableLiveness, myFrCamListener);
 	```
 	
 	The arguments accepted by the start camera function are the Configuration variables for HVFrCamera. The `startCamera()` method will set these variables and set HVFrCamera to start processing the camera feed. The details of the variables are given below.
@@ -199,7 +199,7 @@ HVFrCamera View is a sub-class of FrameLayout. This is a view with a fixed aspec
    	- `timeout` is the maximum time in milliseconds since startCamera() or resumeCamera() after which if the registration/recognition is not done, the onError will be called with Timeout Error. A value of 0 will disable the timeout
    	- `isAutoCaptureEnabled` is a boolean value that specifies if automatic capture of image should happen for recognition when a face matching the desired size is detected. Please note that auto-capture is not supported for Registration mode or Face Add mode 
    	- `useFrontCam` is a boolean value that specifies if the front camera should be used. If set to false, then the back camera will be used for processing
-   	- `shouldDoLiveness` is a boolean variable that specifies if the recognition call should include liveness API call with it. If set to false, then only recognition call will take place. 
+   	- `shouldEnableLiveness` is a boolean variable that specifies if the recognition call should include liveness API call with it. If set to false, then only recognition call will take place. 
    	- `myFrCamListener` is the implementation of HVFrCameraListener you created above
 
 	**UserData JSON Object**:
@@ -242,7 +242,7 @@ hvfrcamera.setAutoCaptureEnabled(isAutoCaptureEnabled);
 hvfrcamera.setFRCameraListener(myFrCamListener);
 hvfrcamera.shouldUseFrontCam(useFrontCam);
 hvfrcamera.resumeFR();
-hvfrcamera.setShouldEnableLiveness(shouldDoLiveness);
+hvfrcamera.setShouldEnableLiveness(shouldEnableLiveness);
 ```
 
 ##### Capturing Face Image Manually        
