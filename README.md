@@ -48,7 +48,7 @@ A high-level overview of the Face Recognition workflow is as follows:
             }
 		}
         dependencies {
-            compile('co.hyperverge:hypersecuresdk:1.2.11@aar', {
+            compile('co.hyperverge:hypersecuresdk:1.3.5@aar', {
                 transitive=true
             })
         }
@@ -58,8 +58,11 @@ A high-level overview of the Face Recognition workflow is as follows:
         ```
         allprojects {
             repositories {
+            maven {
+                url  "http://dl.bintray.com/steveliles/maven"
+            }
                 maven {
-                    url "s3://hvsdk-hvfrcamera/android/hvsecure/releases"
+                   url "s3://hvsdk/android/releases"
                     credentials(AwsCredentials) {
                         accessKey "aws_access_key"
                         secretKey "aws_secret_pass"
@@ -141,6 +144,8 @@ HVFrCamera.HVFrCameraListener myFrCamListener = new HVFrCamera.HVFrCameraListene
         - `userId`: Unique id of the user recognized by Recognition
         - `userInfo`: Some more details about the user
         - `imageUri`: JSON Array of String in which first element indicates the local file path of the face image on which user has been recognized
+        - `live` : Boolean variable which returns if the recognised face is a live image or not.
+        - `liveness-score`: Double variable which indicates the liveness probability.   
     - Capture Mode:
     	- `imageUri`: JSON Array of String in which first element indicates the local file path of the face image that has been captured
 
@@ -185,7 +190,7 @@ HVFrCamera View is a sub-class of FrameLayout. This is a view with a fixed aspec
 - Add the following to the `onCreate()` method of your Activity or Fragment to which HVFrCamera has been added:
 
 	```
-	hvfrcamera.startCamera(userData, mode, timeout, isAutoCaptureEnabled, useFrontCam, myFrCamListener);
+	hvfrcamera.startCamera(userData, mode, timeout, isAutoCaptureEnabled, useFrontCam, shouldDoLiveness, myFrCamListener);
 	```
 	
 	The arguments accepted by the start camera function are the Configuration variables for HVFrCamera. The `startCamera()` method will set these variables and set HVFrCamera to start processing the camera feed. The details of the variables are given below.
@@ -194,6 +199,7 @@ HVFrCamera View is a sub-class of FrameLayout. This is a view with a fixed aspec
    	- `timeout` is the maximum time in milliseconds since startCamera() or resumeCamera() after which if the registration/recognition is not done, the onError will be called with Timeout Error. A value of 0 will disable the timeout
    	- `isAutoCaptureEnabled` is a boolean value that specifies if automatic capture of image should happen for recognition when a face matching the desired size is detected. Please note that auto-capture is not supported for Registration mode or Face Add mode 
    	- `useFrontCam` is a boolean value that specifies if the front camera should be used. If set to false, then the back camera will be used for processing
+   	- `shouldDoLiveness` is a boolean variable that specifies if the recognition call should include liveness API call with it. If set to false, then only recognition call will take place. 
    	- `myFrCamListener` is the implementation of HVFrCameraListener you created above
 
 	**UserData JSON Object**:
@@ -236,6 +242,7 @@ hvfrcamera.setAutoCaptureEnabled(isAutoCaptureEnabled);
 hvfrcamera.setFRCameraListener(myFrCamListener);
 hvfrcamera.shouldUseFrontCam(useFrontCam);
 hvfrcamera.resumeFR();
+hvfrcamera.setShouldEnableLiveness(shouldDoLiveness)
 ```
 
 ##### Capturing Face Image Manually        
